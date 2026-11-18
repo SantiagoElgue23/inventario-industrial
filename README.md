@@ -6,8 +6,6 @@ Aplicación web para administrar el catálogo, las existencias, los activos indi
 - **Backend:** FastAPI + SQLAlchemy 2 + Alembic
 - **Base de datos:** PostgreSQL 16 (Docker Compose)
 
-La base es independiente de InvenTree: no se escribe nada en InvenTree. Las cantidades importadas desde InvenTree se conservan solo como referencia histórica; el stock real empieza con un conteo físico.
-
 El historial de cambios está en [CHANGELOG.md](CHANGELOG.md).
 
 ## Estructura
