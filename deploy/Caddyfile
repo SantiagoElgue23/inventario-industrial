@@ -1,0 +1,26 @@
+{
+	admin off
+}
+
+:80 {
+	encode gzip
+
+	# La API vive bajo el mismo origen que la interfaz (necesario para la cookie de sesión).
+	handle /api/* {
+		reverse_proxy api:8000
+	}
+
+	# Interfaz: cualquier otra ruta devuelve index.html y la resuelve React Router.
+	handle {
+		root * /srv
+		try_files {path} /index.html
+		file_server
+	}
+
+	header {
+		X-Content-Type-Options nosniff
+		X-Frame-Options DENY
+		Referrer-Policy same-origin
+		-Server
+	}
+}

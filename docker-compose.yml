@@ -1,0 +1,28 @@
+
+services:
+  db:
+    image: postgres:16
+    container_name: inventario-postgres
+    restart: unless-stopped
+
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-inventory}
+      POSTGRES_USER: ${POSTGRES_USER:-inventario}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Define POSTGRES_PASSWORD en el archivo .env}
+
+    ports:
+      - "127.0.0.1:5432:5432"
+
+    volumes:
+      - inventario_postgres_data:/var/lib/postgresql/data
+
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - pg_isready -U ${POSTGRES_USER:-inventario} -d ${POSTGRES_DB:-inventory}
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  inventario_postgres_data:

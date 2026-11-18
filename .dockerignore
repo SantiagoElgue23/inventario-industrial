@@ -1,0 +1,15 @@
+.git
+.github
+.claude
+node_modules
+dist
+backups
+docs
+.env
+.env.*
+**/.venv
+**/__pycache__
+**/*.py[cod]
+.pytest_cache
+backend/tests
+backend/import_data/*.xlsx

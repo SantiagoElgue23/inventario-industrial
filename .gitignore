@@ -1,0 +1,44 @@
+﻿# Frontend
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+backend/.env
+backend/.env.*
+
+# Backend
+backend/.venv/
+backend/__pycache__/
+backend/**/__pycache__/
+*.py[cod]
+
+# Python / tools
+.venv/
+__pycache__/
+
+# Editors and OS
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db
+*.log
+
+# Archivos locales de importación
+backend/import_data/*.xlsx
+
+# Backups de bases de datos
+*.dump
+*.backup
+backup_*.sql
+backups/
+.pytest_cache/
+
+# Copias locales del proyecto
+codigo_actual.zip
+.claude/settings.local.json
